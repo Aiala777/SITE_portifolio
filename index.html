@@ -232,6 +232,74 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<div id="chatbot-icon">
+				<img src=".\images\super-heroi.png" alt="Chatbot" width="30" height="30">
+				
+			</div>
+			
+			<div id="chat-window">
+				<div id="chat-content">
+					<!-- Inicie o chat com a pergunta "O que é a vida?" -->
+					<p>Arthur Jr: Quer alguns atalhos para aumentar a sua produtividade?</p>
+				</div>
+				<input type="text" id="user-input" placeholder="Digite sua resposta">
+				<button onclick="enviarResposta()">Enviar</button>
+			</div>
+			
+			<script>
+				function enviarResposta() {
+					const userResponse = document.getElementById("user-input").value;
+					const chatContent = document.getElementById("chat-content");
+			
+					// Adicione a resposta do usuário ao histórico de conversa
+					chatContent.innerHTML += `<p>Você: ${userResponse}</p>`;
+			
+					// Responda à pergunta "O que é a vida?" com a visão do chatbot
+					const respostaChatbot = `
+Aqui estão alguns atalhos úteis de teclado que podem tornar sua experiência no computador mais eficiente:
+
+<b>Atalhos de Teclado:</b>
+
+<ol>
+  <li><strong>Windows + V:</strong> Abre o histórico de área de transferência do Windows, permitindo que você cole itens anteriores copiados ou recortados.</li>
+  <li><strong>Windows + L:</strong> Bloqueia o computador e exige que você insira sua senha ou PIN para desbloqueá-lo.</li>
+</ol>
+
+<b>Atalhos de Produtividade:</b>
+
+<ol>
+  <li><strong>Ctrl + S:</strong> Salva o documento ou projeto atual. Use este atalho regularmente para evitar a perda de dados.</li>
+  <li><strong>Alt + Tab:</strong> Alterna entre aplicativos ou janelas abertas. Útil para alternar rapidamente entre programas em execução.</li>
+</ol>
+
+<b>Atalho de Navegação na Web:</b>
+
+<ol>
+  <li><strong>Ctrl + T:</strong> Abre uma nova guia no navegador da web. Use isso para manter várias páginas abertas e organizadas.</li>
+</ol>
+
+Experimente esses atalhos para melhorar sua produtividade e facilitar o uso do computador!
+`;
+
+// Agora, a resposta do chatbot deve renderizar a lista corretamente com formatação HTML.
+
+					chatContent.innerHTML += `<p>${respostaChatbot}</p>`;
+			
+					// Limpe a caixa de entrada do usuário
+					document.getElementById("user-input").value = "";
+				}
+			
+				// Mostrar/ocultar a janela de chat ao clicar no ícone do chat
+				const chatIcon = document.getElementById("chatbot-icon");
+				const chatWindow = document.getElementById("chat-window");
+				chatIcon.addEventListener("click", function() {
+					if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+						chatWindow.style.display = "block";
+					} else {
+						chatWindow.style.display = "none";
+					}
+				});
+			</script>
 
 	</body>
 </html>

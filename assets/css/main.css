@@ -157,6 +157,90 @@ input, select, textarea {
 			}
 
 
+/* Estilo para a bolinha flutuante */
+#chatbot-icon {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	z-index: 1000;
+	background-color: #06386e;
+	color: #fff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+/* Estilos para a mensagem flutuante */
+.mensagem-flutuante {
+	position: absolute;
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	top: -30px; /* Ajuste a posição vertical da mensagem conforme necessário */
+	left: 50%; /* Ajuste a posição horizontal da mensagem conforme necessário */
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+/* Estilos para mostrar a mensagem quando passar o mouse sobre o ícone */
+.icone:hover + .mensagem-flutuante {
+	opacity: 1;
+}
+
+  /* Estilos para o ícone */
+  .icone {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background-color: #3498db;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 100px;
+	color: #fff;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+ /* Estilo para a janela de chat */
+ #chat-window {
+	position: fixed;
+	bottom: 90px; /* Aumentei a distância para evitar sobreposição com a bolinha */
+	right: 20px;
+	width: 300px;
+	height: 300px; /* Reduzi a altura para acomodar melhor o conteúdo */
+	background-color: #272833;
+	border: 1px solid #272833;
+	z-index: 1001;
+	display: none;
+	overflow-y: scroll; /* Adicionei barra de rolagem vertical */
+}
+ /* Estilo para o conteúdo do chat */
+ #chat-content {
+	padding: 10px;
+}
+
+/* Estilo para a caixa de entrada de texto e o botão de enviar */
+#user-input {
+	width: 80%;
+	padding: 5px;
+	margin-right: 5px;
+}
+
+#send-button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+
+
+
 /* skills  */
 *{box-sizing:border-box}
 

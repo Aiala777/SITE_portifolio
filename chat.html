@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot com Janela de Chat</title>
+    <style>
+        /* Estilo para o ícone do chat */
+        #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Estilo para a janela de chat */
+        #chat-window {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1001;
+            display: none;
+        }
+
+        /* Estilo para o conteúdo do chat */
+        #chat-content {
+            height: 100%;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-icon">
+        <img src="seu-icone.png" alt="Chatbot" width="30" height="30">
+    </div>
+
+    <div id="chat-window">
+        <div id="chat-content">
+            <!-- Inicie o chat com a pergunta "O que é a vida?" -->
+            <p>Chatbot: O que é a vida?</p>
+        </div>
+        <input type="text" id="user-input" placeholder="Digite sua resposta">
+        <button onclick="enviarResposta()">Enviar</button>
+    </div>
+
+    <script>
+        function enviarResposta() {
+            const userResponse = document.getElementById("user-input").value;
+            const chatContent = document.getElementById("chat-content");
+
+            // Adicione a resposta do usuário ao histórico de conversa
+            chatContent.innerHTML += `<p>Você: ${userResponse}</p>`;
+
+            // Responda à pergunta "O que é a vida?" com a visão do chatbot
+            const respostaChatbot = "Chatbot: Na minha visão, a vida é uma jornada incrível, cheia de oportunidades e experiências únicas.";
+            chatContent.innerHTML += `<p>${respostaChatbot}</p>`;
+
+            // Limpe a caixa de entrada do usuário
+            document.getElementById("user-input").value = "";
+        }
+
+        // Mostrar/ocultar a janela de chat ao clicar no ícone do chat
+        const chatIcon = document.getElementById("chatbot-icon");
+        const chatWindow = document.getElementById("chat-window");
+        chatIcon.addEventListener("click", function() {
+            if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+                chatWindow.style.display = "block";
+            } else {
+                chatWindow.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
